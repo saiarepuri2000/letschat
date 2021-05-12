@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 
-function App() {
+const App=()=> {
   const [notes, setNotes] = useState([]);
 
-  function addNote(newNote) {
+  const addNote=(newNote) =>{
     setNotes(prevNotes => {
       return [...prevNotes, newNote];
     });

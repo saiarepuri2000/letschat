@@ -3,13 +3,13 @@ import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 
 
-function CreateArea(props) {
+const CreateArea=(props)=> {
   const [note, setNote] = useState({
     title: "",
     content: ""
   });
 
-  function handleChange(event) {
+  const handleChange=(event) =>{
     
     const { name, value } = event.target;
     
@@ -21,7 +21,7 @@ function CreateArea(props) {
     });
   }
   
-  function submitNote(event) {
+  const submitNote=(event)=> {
     if(note.title !== "" && note.content !== ""){
     props.onAdd(note);
     }

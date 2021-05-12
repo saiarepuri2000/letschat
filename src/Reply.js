@@ -3,14 +3,14 @@ import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 import ChatIcon from '@material-ui/icons/Chat';
 
-function Reply(props){
+const Reply=(props)=>{
   const [reply, setreply] = useState({
     title: "",
     content: "",
     count:props.cnt
   });
 
-  function handleChange(event) {
+  const handleChange=(event) =>{
     
     const { name, value } = event.target;
     
@@ -22,7 +22,7 @@ function Reply(props){
     });
   }
   
-  function submitNote(event) {
+  const  submitNote=(event) =>{
     if(reply.title !== "" && reply.content !== "" && props.count<=3){
     props.onAdd(reply);
     props.onCount(props.count+1);
