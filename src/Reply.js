@@ -27,6 +27,10 @@ const Reply=(props)=>{
     props.onAdd(reply);
     props.onrc(props.cntrc+1);
     }
+    if(props.cntrc === 2)
+    {
+      props.onrc(1);
+    }
     setreply({
       title: "",
       content: ""
