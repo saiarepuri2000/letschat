@@ -4,13 +4,17 @@ import CreateArea from "./CreateArea";
 
 const App=()=> {
   const [notes, setNotes] = useState([]);
-
+  const [replycnt,setreplycnt] = useState(0);
+  
   const addNote=(newNote) =>{
     setNotes(prevNotes => {
       return [...prevNotes, newNote];
     });
   }
-
+  const handlecount = (newcount)=>{
+    setreplycnt(newcount)
+  }
+  
   return (
     <div>
       <CreateArea onAdd={addNote} />
@@ -21,6 +25,8 @@ const App=()=> {
             id={index}
             title={noteItem.title}
             content={noteItem.content}
+            replycount = {replycnt}
+            addcount = {handlecount}
           />
         );
       })}
