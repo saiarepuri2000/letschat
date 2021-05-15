@@ -23,9 +23,9 @@ const Reply=(props)=>{
   }
   
   const  submitNote=(event) =>{
-    if(reply.title !== "" && reply.content !== "" && props.count<=3){
+    if(reply.title !== "" && reply.content !== "" && props.cntrc<2){
     props.onAdd(reply);
-    props.onCount(props.count+1);
+    props.onrc(props.cntrc+1);
     }
     setreply({
       title: "",
