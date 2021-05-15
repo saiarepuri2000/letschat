@@ -4,12 +4,8 @@ import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 import Reply from "./Reply"
 const  Note=(props) =>{
   const [cnt,setCnt] = useState(0);
-  const [replycnt,setreplycnt] = useState(0);
+  const [rc,setrc] = useState(props.replycount);
   const [reply,setReply] = useState([]);
-  const addcount=(count)=>
-  {
-    setreplycnt(count);
-  }
   const  addReply=(newReply)=>
   {
        setReply(prevReply =>{
@@ -17,6 +13,10 @@ const  Note=(props) =>{
        })
        
   }
+  const handlerc = (newrc)=>{
+    setrc(newrc);
+  }
+  // console.log(props.replycount);
   return (
       <div className="post">
         <h1>{props.title}</h1>
@@ -28,10 +28,8 @@ const  Note=(props) =>{
           <ThumbDownAltIcon/>
         </button>
         {
-          replycnt<=2?(
           
-        <Reply onAdd = {addReply} onCount={addcount} count={replycnt}/>
-          ):(<Reply/>)
+        <Reply onAdd = {addReply} cntrc={rc} onrc={handlerc}/>
         }
         {
           reply.map((replyItem, index) => {
@@ -41,6 +39,8 @@ const  Note=(props) =>{
             id={index}
             title={replyItem.title}
             content={replyItem.content}
+            replycount = {rc}
+            addcount = {handlerc}
           />
         );
       })}
